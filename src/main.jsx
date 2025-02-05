@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
+import { ToasterProvider } from './context/TosterContext';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -11,7 +12,9 @@ createRoot(document.getElementById('root')).render(
         v7_relativeSplatPath: true,
       }}
     >
-      <App />
+      <ToasterProvider>
+        <App />
+      </ToasterProvider>
     </BrowserRouter>
   </StrictMode>,
 )

@@ -1,11 +1,21 @@
 import { Button } from '@mui/material';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import BackDropLoader from 'src/components/loaders/BackDropLoader';
 import LinearLoader from 'src/components/loaders/LinerLoader';
-import MuiToaster from 'src/components/Toaster';
+import AnimatedModal from 'src/components/Modal';
+import { TOAST_TYPE } from 'src/consts/common';
+import { useToaster } from 'src/context/TosterContext';
 
 const Dashboard = () => {
+  const {showToast} = useToaster();
   const navigate = useNavigate();
+  useEffect(()=>{
+    showToast("Login Success.", TOAST_TYPE.SUCCESS)
+    // showToast("Success! Operation completed.", TOAST_TYPE.ERROR)
+    // showToast("Success! Operation completed.", TOAST_TYPE.WARNING)
+    // showToast("Success! Operation completed.", TOAST_TYPE.INFO)
+  },[])
   return (
     <>
       <div
@@ -70,7 +80,7 @@ const Dashboard = () => {
         &&
         <LinearLoader/>
       }
-      <MuiToaster/>
+      {/* <AnimatedModal/> */}
     </>
   );
 };

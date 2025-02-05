@@ -46,6 +46,7 @@ const SignIn = () => {
         height: "100vh",
         width: "100vw",
         backgroundColor: "#f4f4f4",
+        fontFamily: 'Arial, sans-serif',
       }}
     >
       <div
